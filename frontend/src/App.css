@@ -1,0 +1,33 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem 5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 200px;
+  height: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgb(95, 95, 95);
+}
+
+.search-input:has(input:focus) {
+  border: 1px solid rgb(139, 187, 215);
+}
+
+.search-input input {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding-left: 0.5rem;
+}
