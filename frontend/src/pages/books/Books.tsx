@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import { getBooks } from "../../apis/booksApis";
+import { bookType } from "../../types";
 
 import "./books.css";
 
 function Books() {
-  const [books, setBooks] = useState([]);
-  const [error, setError] = useState(null);
+  const [books, setBooks] = useState<bookType[]>([]);
+  const [error, setError] = useState<unknown | string>(null);
 
-  const getBooksData = useCallback(async (signal) => {
+  const getBooksData = useCallback(async (signal: AbortSignal) => {
     try {
       const { data } = await getBooks(signal);
       setBooks(data);
@@ -37,9 +38,13 @@ function Books() {
       <div className="book-container">
         {books.map((book) => (
           <div className="book">
-            <img src={book.image} alt={book.title} />
+            <div className="book-cover">
+              <img src={book.cover} alt={book.title} />
+            </div>
             <h3>{book.title}</h3>
-            <p>{book.author}</p>
+            <p>
+              {book.desc.slice(0, 100)} {book.desc.length > 100 && "..."}
+            </p>
           </div>
         ))}
       </div>

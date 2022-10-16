@@ -1,0 +1,24 @@
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.book {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-cover {
+  width: 90%;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.book h3 {
+  align-self: center;
+}
